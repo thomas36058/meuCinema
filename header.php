@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="<?php echo $urlSite; ?>/assets/css/reset.css">
     <link rel="stylesheet" href="<?php echo $urlSite; ?>/assets/css/comum.css">
     <link rel="stylesheet" href="<?php echo $urlSite; ?>/assets/css/header.css">
-    <link rel="stylesheet" href="<?php echo $urlSite; ?>/assets/css/<?php echo $cssEspecifico; ?>.css">
 
     <title><?php geraTitulo(); ?></title>
 

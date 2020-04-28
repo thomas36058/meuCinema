@@ -1,6 +1,8 @@
 <?php 
-    $cssEspecifico = 'single';
-    require_once('header.php');
+// $cssEspecifico = 'single';
+// require_once('header.php');
+
+get_header();
 ?>
 
 <main>

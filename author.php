@@ -1,7 +1,9 @@
 <?php
 
-$cssEspecifico = 'home';
-require_once('header.php');
+// $cssEspecifico = 'home';
+// require_once('header.php');
+
+get_header();
 
 ?>
 
@@ -19,12 +21,50 @@ require_once('header.php');
 
                 <p><i><?php the_author_meta( 'user_url' ) ?></i></p>
 
-                <?php the_author_meta('description') ?>
+                <?php if ( get_the_author_meta( 'description' ) ) : ?>
+				    <div class="author-description"><?php the_author_meta( 'description' ); ?></div>
+				<?php endif; ?>
             </div>
 
             <div class="autor-posts">
 
-                <h3><?php echo 'Todas postagens de ' . get_the_author(); ?></h3>
+                <h3><?php echo 'Todas as postagens de ' . get_the_author(); ?></h3>
+
+                <?php rewind_posts() ?>
+
+                <ul>
+                    <?php while( have_posts() ): the_post(); ?>
+
+                        <li class="noticia-lista-item">
+
+                            <?php if ( has_post_thumbnail( ) ): ?>
+
+                                <a href="<?php the_permalink() ?>" title="<?php printf(__('Ver mais sobre %s', 'cinepress'), get_the_title()) ?>">
+                                    <?php the_post_thumbnail(); ?>
+                                </a>
+
+                            <?php endif; ?>
+
+                            <a href="<?php the_permalink() ?>" title="<?php printf(__('Ver mais sobre %s', 'cinepress'), get_the_title()) ?>">
+                                <h2><?php echo get_the_title() ?> </h2>
+                            </a>
+
+                            <?php the_excerpt() ?>
+
+                            <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) ?>">              
+                                <?php the_author() ?>
+                            </a>
+
+                            <?php echo get_the_date() ?>
+
+                        </li>
+
+                    <?php endwhile; wp_reset_postdata(); ?>
+                </ul>
+
+                <div class="paginacao">
+                    <?php echo paginate_links(); ?>
+                </div>
 
             </div>
 

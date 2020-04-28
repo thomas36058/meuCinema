@@ -5,7 +5,7 @@
 
 $noticias_id = get_option('page_for_posts');
 
-$categories = get_categories($args);	
+$categories = get_categories($args);
 
 get_header();
 

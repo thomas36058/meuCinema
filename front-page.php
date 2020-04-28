@@ -1,7 +1,9 @@
 <?php 
 
-$cssEspecifico = 'index';
-require_once('header.php');
+// $cssEspecifico = 'index';
+// require_once('header.php');
+
+get_header();
 
 $posts = new WP_Query(array(
     'posts_per_page' => 3
